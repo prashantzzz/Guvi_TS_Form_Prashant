@@ -1,19 +1,21 @@
 {
-  "name": "assign5",
+  "name": "contact-form",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "copy-html": "cp index.html dist/",
-    "watch": "tsc -w"
+    "build": "tsc && npm run copy-html",
+    "copy-html": "copyfiles -f index.html dist",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^14.1.1",
+    "copyfiles": "^2.4.1",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
   }
 }
