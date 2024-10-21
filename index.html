@@ -4,124 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>Contact Us</title>
+    <title>Contact Form</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .contact-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 40px;
-            background-color: #ffffff;
-        }
-
-        .contact-left {
-            width: 45%;
-            padding-right: 20px;
-        }
-
-        .contact-right {
-            width: 45%;
-            padding-left: 20px;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
             background-color: #f5f5f5;
+        }
+
+        .form-container {
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-            color: #333;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        .contact-info {
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        .contact-info a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         input, textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
         }
 
         button {
             background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
+            color: white;
+            padding: 10px 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
 
         button:hover {
             background-color: #45a049;
         }
 
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
         .error-message {
             color: red;
             font-size: 12px;
+            margin-top: 5px;
             display: none;
         }
 
-        @media screen and (max-width: 768px) {
-            .contact-container {
-                flex-direction: column;
-            }
+        #statusMessage {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
 
-            .contact-left, .contact-right {
-                width: 100%;
-                padding: 0;
-            }
+        .status-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
 
-            .contact-right {
-                margin-top: 20px;
-            }
+        .status-error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
         }
     </style>
 </head>
 <body>
-    <div class="contact-container">
-        <div class="contact-left">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <p>Let us know your queries, feedback, and inquiries. We are here to support you 24/7.</p>
-                <p><strong>Give us a call:</strong> <a href="tel:+919736097320">+91 97360 97320</a></p>
-                <p><strong>Write to us:</strong> <a href="mailto:cs@guvi.in">cs@guvi.in</a></p>
-                <p><strong>Visit us in Chennai:</strong> IITM Research park – phase 2, module #9, 3rd floor, D block, Kanagam Rd, Taramani, Chennai, Tamil Nadu 600113</p>
-                <p><strong>Visit us in Noida:</strong> A11, HCL Corporation Pvt. Ltd, Block A, Sector 3, Noida, Uttar Pradesh 201307</p>
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <div id="statusMessage"></div>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <div id="nameError" class="error-message"></div>
             </div>
-        </div>
-        <div class="contact-right">
-            <h2>Say Hello!</h2>
-            <form id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Name" required>
-                <input type="email" id="email" name="email" placeholder="E-mail id" required>
-                <input type="tel" id="contact" name="contact" placeholder="Contact Number" required>
-                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                <textarea id="message" name="message" placeholder="Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" name="contact" required>
+                <div id="contactError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+                <div id="subjectError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <div id="msgError" class="error-message"></div>
+            </div>
+
+            <button type="submit" id="submitBtn">Send Message</button>
+        </form>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
