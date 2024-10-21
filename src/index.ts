@@ -133,7 +133,7 @@ class ContactForm {
     }
 }
 
-// Initialize form when DOM is loaded
+// initializing form...
 document.addEventListener('DOMContentLoaded', () => {
     new ContactForm();
 });

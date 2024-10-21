@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
+    "copy-html": "cp index.html dist/",
     "watch": "tsc -w"
   },
   "keywords": [],

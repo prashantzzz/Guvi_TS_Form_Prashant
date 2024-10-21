@@ -66,7 +66,7 @@ class ContactForm {
         };
         const errors = this.validateForm(formData);
         if (Object.keys(errors).length > 0) {
-            // Display validation errors
+            // some validation errors...
             for (const [field, message] of Object.entries(errors)) {
                 this.showError(field, message);
             }
@@ -95,7 +95,7 @@ class ContactForm {
         }
     }
 }
-// Initialize form when DOM is loaded
+// initializing form:
 document.addEventListener('DOMContentLoaded', () => {
     new ContactForm();
 });
